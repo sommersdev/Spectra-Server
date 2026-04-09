@@ -101,7 +101,7 @@ export class Match {
       !this.orgIsSupporter
     ) {
       this.tools.roundWinBox.sponsors = [this.tools.roundWinBox.sponsors[0]];
-      this.tools.roundWinBox.sponsors[0].roundCeremony = ["all"];
+      this.tools.roundWinBox.sponsors[0].roundCeremonie = ["all"];
       this.tools.roundWinBox.sponsors[0].wonTeam = "all";
     }
 
