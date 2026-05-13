@@ -36,7 +36,7 @@ export class Team {
   private roundRecord: RecordEntry[] = [];
   private removeTricode: boolean = false;
 
-  private players: Player[] = [];
+  public players: Player[] = [];
   private playerCount = 0;
   private hasDuplicateAgents = false;
 

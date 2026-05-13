@@ -380,6 +380,9 @@ export class Match {
       case DataTypes.SWAP_L_R:
         this.handleSwapLR();
         break;
+      case DataTypes.SWAP_P_T:
+        this.handleSwapPT();
+        break;
     }
 
     this.eventNumber++;
@@ -554,6 +557,17 @@ export class Match {
     const tempRR = this.teams[0].getRoundReasons();
     this.teams[0].setRoundReasons(this.teams[1].getRoundReasons());
     this.teams[1].setRoundReasons(tempRR);
+  }
+
+  private handleSwapPT() {
+    const leftTeam = this.teams[0];
+    const rightTeam = this.teams[1];
+
+    this.teams[0] = rightTeam;
+    this.teams[0].players = leftTeam.players;
+
+    this.teams[1] = leftTeam;
+    this.teams[1].players = rightTeam.players;
   }
 
   private handleTeamTimeout(team: "left" | "right") {
