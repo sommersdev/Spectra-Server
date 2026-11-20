@@ -658,18 +658,6 @@ export class Match {
       `Attacking Team: ${attackingTeam?.alivePlayers()} - Defending Team: ${defendingTeam?.alivePlayers()}`,
     );
   }
-
-  public getPlayercamsInfo() {
-    return this.tools.playercamsInfo;
-  }
-
-  public isSupporter() {
-    return this.orgIsSupporter;
-  }
-
-  public setPlayercamsListenIn(team: IPlayercamsListenIn) {
-    this.getPlayercamsInfo().listenIn = team;
-  }
 }
 
 export interface SpikeStates {
