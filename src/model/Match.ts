@@ -544,7 +544,7 @@ export class Match {
   }
 
   private handleListenIn(data: IPlayercamsListenIn) {
-    if (this.roundPhase !== "combat") return
+    if (this.roundPhase !== "combat") return;
 
     if (data === this.tools.playercamsInfo.listenIn && data !== false) {
       this.tools.playercamsInfo.listenIn = false;
