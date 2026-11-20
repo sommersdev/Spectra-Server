@@ -255,6 +255,8 @@ export class Match {
               DatabaseConnector.updateMatch(this);
             }
 
+            this.tools.playercamsInfo.listenIn = false;
+
             break;
 
           case "combat":
@@ -381,7 +383,7 @@ export class Match {
         this.handleSwapLR();
         break;
       case DataTypes.PLAYERCAM_LISTENIN:
-        this.tools.playercamsInfo.listenIn = data.data as IPlayercamsListenIn;
+        this.handleListenIn(data.data as IPlayercamsListenIn);
     }
 
     this.eventNumber++;
@@ -539,6 +541,16 @@ export class Match {
       }
       // If duration is null, the toast stays until the hotkey is pressed again
     }
+  }
+
+  private handleListenIn(data: IPlayercamsListenIn) {
+    if (this.roundPhase !== "combat") return
+
+    if (data === this.tools.playercamsInfo.listenIn && data !== false) {
+      this.tools.playercamsInfo.listenIn = false;
+      return;
+    }
+    this.tools.playercamsInfo.listenIn = data;
   }
 
   private handleSwapLR() {
